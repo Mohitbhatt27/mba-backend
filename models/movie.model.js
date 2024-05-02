@@ -49,11 +49,11 @@ const movieSchema = new mongoose.Schema({
         required: true,
     },
     rating: {
-        type: Number,
+        type: String,
         required: true
     },
     voteCount: {
-        type: Number,
+        type: String,
         required: true
     },
 }, {timestamps: true});
