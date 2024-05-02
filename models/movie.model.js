@@ -43,7 +43,19 @@ const movieSchema = new mongoose.Schema({
     poster: {
         type: String,
         required: true,
-    }
+    },
+    genre: {
+        type: String,
+        required: true,
+    },
+    rating: {
+        type: Number,
+        required: true
+    },
+    voteCount: {
+        type: Number,
+        required: true
+    },
 }, {timestamps: true});
 
 const Movie = mongoose.model('Movie', movieSchema); // creates a new model
