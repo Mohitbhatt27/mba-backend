@@ -11,8 +11,8 @@ const createPayment = async (data) => {
         const show = await Show.findOne({
             movieId: booking.movieId,
             theatreId: booking.theatreId,
-            _id: data.showId,
-            timing: booking.timing
+            showId: data.showId
+            
         });
         if(booking.status == BOOKING_STATUS.successfull) {
             throw {
