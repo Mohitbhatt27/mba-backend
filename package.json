@@ -4,8 +4,9 @@
   "description": "This is a backend API application for Movie Booking, similar to BMS",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"No tests implemented\"",
-    "start": "npx nodemon index.js"
+    "dev": "npx nodemon index.js",
+    "start": "node index.js",
+    "test": "echo \"No tests implemented\""
   },
   "author": "Mohit Bhatt",
   "license": "ISC",
@@ -17,7 +18,9 @@
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "jsonwebtoken": "^9.0.2",
-    "mongoose": "^6.5.3",
-    "nodemon": "^3.1.0"
+    "mongoose": "^6.5.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
   }
 }
