@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 const env = require("dotenv");
 const cors = require("cors");
 const mongoose = require("mongoose");
+import path from "path";
 
 const MovieRoutes = require("./routes/movie.routes");
 const theatreRoutes = require("./routes/theatre.routes");
@@ -21,6 +22,8 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+app.use(express.static("frontend_dist"));
+
 mongoose.set("debug", true);
 
 MovieRoutes(app); // invoking movie routes
@@ -31,9 +34,14 @@ bookingRoutes(app); // invoking booking routes
 showRoutes(app); // invoking show routes
 paymentRoutes(app); // invoking payment routes
 
-app.get("/", (req, res) => {
-  res.send("Home");
+// Fallback route to serve React app's index.html for any unknown routes
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "frontend_dist", "index.html"));
 });
+
+// app.get("/", (req, res) => {
+//   res.send("Home");
+// });
 
 app.listen(process.env.PORT, async () => {
   // this callback gets executed, once we successfully start the server on the given port
