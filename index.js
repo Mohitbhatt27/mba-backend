@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 const env = require("dotenv");
 const cors = require("cors");
 const mongoose = require("mongoose");
+const path = require("path");
 
 const MovieRoutes = require("./routes/movie.routes");
 const theatreRoutes = require("./routes/theatre.routes");
